@@ -2,11 +2,11 @@
 echo This script is for IE Autoscript Proxy Configuration.
 echo Written by Wallance Hou 12/9/2016
 echo -----------------------------------------
-set SH_PROXY="http://10.175.250.81/"
-set SHTE_PROXY="http://10.175.250.81/proxy-shte.pac"
-set SW_PROXY="http://10.175.250.81/proxy-sw.pac"
-set US_PROXY="http://10.175.250.81/proxy-exu.pac"
-set DEFAULT_PROXY="http://proxy-pac-anycast.ericsson.se/"
+set SH_PROXY="http://1.2.3.4/"
+set SHTE_PROXY="http://1.2.3.4/proxy-shte.pac"
+set SW_PROXY="http://1.2.3.4/proxy-sw.pac"
+set US_PROXY="http://1.2.3.4/proxy-exu.pac"
+set DEFAULT_PROXY="http://xxx.domainname/"
 
 rem //Select one Proxy server
   echo You can select:
