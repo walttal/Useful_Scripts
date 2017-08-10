@@ -1,0 +1,49 @@
+#
+# Microsoft VBS script and BAT script
+#
+# Author : Wallance Hou
+#
+#
+
+
+
+#  Edit the below and save as .vbs file
+
+Set objShell = CreateObject("Wscript.Shell") 
+do
+WScript.Sleep 600000
+objShell.SendKeys "{F5}"  
+loop
+
+
+
+
+#  Edit the below and save as .bat file to kill vbs script process
+
+
+@echo off
+
+taskkill /f /im wscript.exe >NUL 2>NUL
+
+IF ERRORLEVEL 1 goto 1 
+
+IF ERRORLEVEL 0 goto 0 
+
+goto C 
+
+:0 
+
+:: echo *****Kill process wscript.exe successfully*****
+
+goto C 
+
+:1 
+
+:: echo *****ERROR: the process wscript.exe not found***** 
+
+
+goto C 
+
+
+
+:C
