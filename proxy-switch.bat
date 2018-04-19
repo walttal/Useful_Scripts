@@ -1,12 +1,30 @@
 @echo off
+rem Author: Wallance Hou
+rem Date: 9/27/2017
+rem Purpose: for telnet function
+
+rem set background/frontground color
+color f1
+
+rem set title
+title=proxySwitch
+
+rem set windows size
+mode con cols=80 lines=20
+
+:0
+cls
+
 echo This script is for IE Autoscript Proxy Configuration.
 echo Written by Wallance Hou 12/9/2016
 echo -----------------------------------------
-set SH_PROXY="http://1.2.3.4/"
-set SHTE_PROXY="http://1.2.3.4/proxy-shte.pac"
-set SW_PROXY="http://1.2.3.4/proxy-sw.pac"
-set US_PROXY="http://1.2.3.4/proxy-exu.pac"
-set DEFAULT_PROXY="http://xxx.domainname/"
+set SH_PROXY="http://10.175.250.81/"
+set SHTE_PROXY="http://10.175.250.81/proxy-shte.pac"
+set SW_PROXY="http://10.175.250.81/proxy-sw.pac"
+set SWLI_PROXY="http://10.175.250.81/proxy-swli.pac"
+set US_PROXY="http://10.175.250.81/proxy-exu.pac"
+set DEFAULT_PROXY="http://proxy-pac-anycast.ericsson.se/"
+
 
 rem //Select one Proxy server
   echo You can select:
@@ -14,16 +32,17 @@ rem //Select one Proxy server
   echo 2 AutoConfigURL with Shanghai directly.
   echo 3 AutoConfigURL with Shanghai TE Proxy Default.
   echo 4 AutoConfigURL with Sweden Proxy Default.
-  echo 5 AutoConfigURL with US Proxy Default.
+  echo 5 AutoConfigURL with SWLI Proxy Default.
+  echo 6 AutoConfigURL with US Proxy Default.
   echo x exit
-echo -----------------------------------------
-  :0
+  echo -----------------------------------------
   set /p operate=Please select then Enter:
   if "%operate%" == "1" goto 1
   if "%operate%" == "2" goto 2
   if "%operate%" == "3" goto 3
   if "%operate%" == "4" goto 4
   if "%operate%" == "5" goto 5
+  if "%operate%" == "6" goto 6
   if "%operate%" == "x" goto x
   goto 0
   :1
@@ -39,6 +58,9 @@ echo -----------------------------------------
   set AUTO_URL=%SW_PROXY%
   goto STARTCONF
   :5
+  set AUTO_URL=%SWLI_PROXY%
+  goto STARTCONF
+  :6
   set AUTO_URL=%US_PROXY%
   goto STARTCONF
   :STARTCONF
